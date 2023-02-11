@@ -1,0 +1,396 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+const url = "https://jeg.er-veldig.gay/"
+
+const img = "https://static.realfx.rocks/static/img/pride/highres/Progress1.svg";
+
+const mainLinks = [
+	{
+		"label":"Home",
+	 	"href":"/"
+	},
+	{
+		"label":"Articles",
+	 	"href":"/articles"
+	},
+	{
+		"label":"Get started",
+	 	"href":"/get-started"
+	}
+
+];
+
+const socialLinks = [
+	{
+		"label":"GitHub",
+	 	"href":"https://github.com/"
+	},
+	{
+		"label":"Discord",
+	 	"href":"https://discord.gg/3YkKE8VqM9"
+	}
+]
+
+---
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+
+		<!--
+
+			Colors grabbed from:
+
+			https://coolors.co/edd2e0-5b507a-9ad4d6-f5cb5c-fb8b24
+
+		-->
+		
+		<meta charset="UTF-8" />
+		
+		<meta name="viewport" content="width=device-width" />
+		
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<meta name="generator" content={Astro.generator} />
+
+		<meta name="theme-color" content="#161616"/>
+
+		<title>{title} - Veldig gay.</title>
+
+		<meta     name="description"         content={description}>
+
+  		<meta property="og:url"              content={url}>
+  		<meta property="og:type"             content="website">
+  		<meta property="og:title"            content={title}>
+  		<meta property="og:description"      content={description}>
+  		<meta property="og:image"            content={img}>
+
+  		<meta     name="twitter:card"        content="summary_large_image">
+  		<meta property="twitter:domain"      content={url}>
+  		<meta property="twitter:url"         content={url}>
+  		<meta     name="twitter:title"       content={title}>
+  		<meta     name="twitter:description" content={description}>
+  		<meta     name="twitter:image"       content={img}>
+
+		<link rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+	  
+	  	<link rel="preload"
+			as="style"
+			href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap" />
+	  
+	  	<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap"
+			media="print" onload="this.media='all'" />
+
+		<!-- font loading script -->
+		<script lang="js" type="module">
+
+			function loadFromCookies() {
+				if(!window.localStorage.hasOwnProperty("font")){
+					window.localStorage.setItem("font","unbounded");
+				}
+				
+				document.body.dataset.font = window.localStorage.getItem("font");
+			}
+
+			(()=>{
+				document.addEventListener("DOMContentLoaded",()=>{
+					loadFromCookies();
+				});
+			})();
+
+		</script>
+
+		<!-- Color Scheme Loading Script -->
+		<script lang="js">
+
+			function reloadColor() {
+	
+				if(!window.localStorage.hasOwnProperty("color")){
+	
+					window.localStorage.setItem("color","dark");
+	
+				}
+	
+				document.body.dataset.color = window.localStorage.getItem("color");
+			}
+	
+			document.addEventListener("DOMContentLoaded",()=>{
+	
+				reloadColor();
+
+			})
+		</script>
+
+		<!--
+			FOUC fix.
+		 -->
+		<script lang="js">
+			document.addEventListener("DOMContentLoaded",()=>{
+				if (document.readyState === 'interactive'
+					|| document.readyState === 'complete')
+				{
+					document.body.style.display = "unset";
+				}
+			});
+		</script>
+		<noscript>
+			<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap" rel="stylesheet">
+			<style>
+				body {
+					display: visible;
+				}
+			</style>
+		</noscript>
+	</head>
+	<body
+		data-font="unbounded"
+		data-color="dark">
+		<nav>
+			<div class="settings">
+				<a href="/settings">Settings</a>
+			</div>
+			<div class="links">
+				{mainLinks.map((value)=>( // Astro's equiv of a forEach loop.
+					<span>
+						<a href={value.href}>{value.label}</a>
+					</span>
+				))}
+			</div>
+			<div class="socials">
+				{socialLinks.map((value)=>(
+					<span>
+						<a href={value.href}>{value.label}</a>
+					</span>
+				))}
+			</div>
+		</nav>
+		<div class="app">
+			<slot />
+		</div>
+		<footer>
+			<div class="footer-container">
+				<a href="/#">
+					<h1 id="footer-text">jeg.er-veldig.gay</h1>
+				</a>
+				<div class="secondary">
+					<p id="footer-text">Laget av fire glunter fra Norge.</p>
+				</div>
+			</div>
+			<p id="footer-text">&copy; 2023, fire-glunter</p>
+		</footer>
+	</body>
+</html>
+
+<style> /* navbar style */
+
+
+	@media (max-width: 945px) {
+		body > nav {
+			height: 6rem;
+			grid-template-columns: repeat(1,1fr);
+			grid-template-rows: repeat(2,1fr);
+		}
+		nav > .socials {
+			display: none;
+		}
+	}
+
+	@media (max-width: 540px) {
+		body > nav {
+			height: 6rem;
+			grid-template-columns: repeat(1,1fr);
+			grid-template-rows: repeat(1,1fr);
+		}
+		nav > .settings {
+			display: none;
+		}
+		nav > .socials {
+			display: none;
+		}
+	}
+
+	nav > form > *,
+	nav > div > span > a,
+	nav > div > a {
+		font-size: medium;
+	}
+
+	nav {
+		background-color: var(--sec-1);
+		width: 100%;
+		height: 3rem;
+		display: grid;
+		grid-template-columns: repeat(3,1fr);
+		grid-template-rows: repeat(1,1fr);
+		box-shadow: 0px 0px 256px black;
+	}
+
+	nav > div {
+		text-align: center;
+		margin: auto auto;
+	}
+
+	nav > div > span {
+		padding: 8px
+	}
+
+	nav a {
+		color: var(--pri-1);
+		text-decoration: none;
+	}
+
+	nav a:hover {
+		text-decoration: underline;
+	}
+
+	nav a,
+	nav p,
+	nav span {
+		padding: 0;
+		margin: 0;
+	}
+
+</style>
+
+<style> /* Footer style */
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	#footer-text {
+		color: var(--footer-color);
+	}
+
+	footer {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 10rem;
+		background-color: var(--sec-3);
+	}
+
+	div.footer-container {
+		display: grid;
+		grid-template-rows: repeat(2 1fr);
+		grid-template-columns: repeat(2,1fr);
+	}
+
+	div.footer-container > a {
+		text-decoration: none;
+	}
+
+	div.footer-container > a > h1 {
+		width: fit-content;
+		margin: auto 0;
+		padding: 24px;
+		font-size: 2rem;
+		color: var(--pri-1)
+	}
+
+	div.footer-container > a > h1:hover {
+		text-decoration: underline;
+	}
+
+	div.footer-container > div.secondary {
+		padding-right: 24px;
+		margin: auto 0;
+		text-align: right;
+		color: var(--pri-1);
+	}
+
+	footer > p {
+		margin: auto 0;
+		color: var(--pri-1);
+		text-align: center;
+	}
+
+</style>
+
+<style is:global>
+
+	:root {
+		--pri-1: #EDD2E0;
+		--pri-2: #5B507A;
+		--pri-3: #9AD4D6;
+		--pri-4: #F5CB5C;
+		--pri-5: #FB8B24;
+
+		--sec-1: #323232;
+		--sec-2: #776970;
+		--sec-3: #080808;
+		--sec-4: #484959;
+		--sec-5: rgba(255,255,255,0.25);
+
+		--background: #161616;
+
+		--footer-color: #EDD2E0;
+
+		--font-unbounded: 'Unbounded', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		--font-hyperlegible: 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	}
+
+	body[data-color="dark"] {
+		--pri-1: #EDD2E0;
+		--pri-2: #5B507A;
+		--pri-3: #9AD4D6;
+		--pri-4: #F5CB5C;
+		--pri-5: #FB8B24;
+
+		--sec-1: #323232;
+		--sec-2: #776970;
+		--sec-3: #080808;
+		--sec-4: #484959;
+		--sec-5: rgba(255,255,255,0.25);
+
+		--background: #161616;
+	}
+	
+	body[data-color="light"] {
+		--pri-1: #292929;
+		--pri-2: #5B507A;
+		--pri-3: #9AD4D6;
+		--pri-4: #F5CB5C;
+		--pri-5: #FB8B24;
+
+		--sec-1: #ffffff;
+		--sec-2: #776970;
+		--sec-3: #080808;
+		--sec-4: #484959;
+		--sec-5: rgba(255,255,255,0.25);
+
+		--background: #ececec;
+		--footer-color: #ececec;
+	}
+
+	
+	body[data-font="hyperlegible"] {
+		font-family: var(--font-hyperlegible);
+	}
+	
+	body[data-font="unbounded"] {
+		font-family: var(--font-unbounded);
+	}
+	
+	body {
+		background-color: var(--background);
+		color: var(--pri-1);
+		display: none; /* Overwritten soon. */
+	}
+
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>

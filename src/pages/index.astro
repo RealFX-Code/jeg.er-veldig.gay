@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Styleguide"
+	description="A styleguide, for 'jeg.er-veldig.gay'">
+
+	<main>
+		<div class="styles">
+			<h1>Title</h1>
+			<h2>Subtitle</h2>
+			<div class="card">
+				<h1>Card Title </h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsam fugit doloribus, corrupti atque nisi accusamus aspernatur tempora sunt illum exercitationem natus totam, adipisci laudantium non laboriosam nam quas expedita.</p>
+			</div>
+			<div class="list">
+				<h3>List:</h3>
+				<ul>
+					<li>list-item 1</li>
+					<li>list-item 2</li>
+					<li>list-item 3</li>
+					<li>list-item 4</li>
+					<li>list-item 5</li>
+				</ul>
+			</div>
+			<p class="paragraph">
+				Lorem ipsum dolor sit amet consectetur 
+				adipisicing elit. Placeat quaerat nostrum 
+				temporibus ipsum quis neque illo et iure 
+				expedita a error, quasi sint officia repellat 
+				velit. Possimus cum modi aliquid!
+				<a href="/#">With a link!</a>
+			</p>
+			<div class="card">
+				<h1>Card with links</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dolor minima tempora in officiis quaerat dolorum fugiat facere vel, cumque temporibus necessitatibus, qui accusantium, rerum incidunt? Ullam qui impedit saepe?</p>
+				<a class="content-link" href="/#">Learn More &rarr;</a>
+			</div>
+			<div class="card">
+				<a class="title" href="/#">Card with links</a>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quos quaerat voluptas consequuntur, commodi fugiat non hic! Rem, nesciunt obcaecati, omnis temporibus, eum est nihil nulla at ea ab molestiae.</p>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style is:global>
+
+	:root {
+		--font-size: 1.25rem;
+		--font-size-title: 8rem;
+		--font-size-subtitle: 3rem;
+		--font-size-card-content: 1rem;
+
+		--card-width: 400px;
+	}
+
+	p,
+	a,
+	li {
+		font-size: var(--font-size);
+		color: var(--pri-1);
+	}
+
+	h1 {
+		text-align: center;
+		font-size: var(--font-size-title);
+		font-weight: 900;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: var(--font-size-subtitle);
+	}
+
+	a {
+		font-size: var(--font-size);
+	}
+
+	div.list {
+		border-top: 1px var(--pri-1) solid;
+		padding: 20px;
+		width: fit-content;
+		margin: 0 auto;
+	}
+
+	div.list li {
+		padding-right: 8px;
+		padding-left: 0px;
+		transition: all .25s ease;
+	}
+
+	div.list li:hover{
+		padding-right: 0px;
+		padding-left: 8px;
+	}
+
+	.paragraph {
+		width: 50vw;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	a {
+		transition: 0.25s ease all;
+		letter-spacing: 0.025rem;
+	}
+
+	@media (max-width: 432px) {
+		div.card {
+			width: fit-content;
+		}
+	}
+	.card {
+		margin: 2rem auto;
+		padding: 16px;
+		border-radius: 8px;
+		border: 2px solid var(--pri-1);
+		background-color: var(--background);
+		width: var(--card-width);
+		box-shadow: 0px 0px 5rem rgba(255,255,255,0.1);
+	}
+
+	.card > p {
+		width: unset;
+		text-align: left;
+		font-size: var(--font-size);
+	}
+
+	.card > a.content-link {
+		letter-spacing: 0.025rem;
+		transition: all 0.25s ease;
+	}
+	.card > a.content-link:hover {
+		letter-spacing: 0.035rem;
+	}
+
+	.card > h1,
+	.card > a.title {
+		text-align: left;
+		font-size: 3rem;
+		font-weight: 900;
+	}
+
+</style>

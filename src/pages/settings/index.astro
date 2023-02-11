@@ -1,0 +1,183 @@
+---
+
+    import Layout from './../../layouts/Layout.astro';
+
+    const settings = [
+        {
+            lang:
+            {
+                "label":"Font"
+            },
+            id:"font"
+        }
+    ];
+
+---
+
+<Layout title="Settings"
+    description="Instillinger for nettsiden.">
+    <script lang="js">
+
+        function reloadFont() {
+
+            if(!window.localStorage.hasOwnProperty("font")){
+
+                window.localStorage.setItem("font","unbounded");
+
+            }
+
+            document.body.dataset.font = window.localStorage.getItem("font");
+        }
+
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            let fontForm = document.getElementById("font-form");
+
+            fontForm.value = window.localStorage.getItem("font");
+
+            fontForm.addEventListener("change",()=>{
+
+                window.localStorage.setItem("font",fontForm.value);
+
+                reloadFont();
+            })
+            
+        })
+    </script>
+    <script lang="js">
+
+        function reloadColor() {
+
+            if(!window.localStorage.hasOwnProperty("color")){
+
+                window.localStorage.setItem("color","dark");
+
+            }
+
+            document.body.dataset.color = window.localStorage.getItem("color");
+        }
+
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            let colorForm = document.getElementById("color-form");
+
+            colorForm.value = window.localStorage.getItem("color");
+
+            colorForm.addEventListener("change",()=>{
+
+                window.localStorage.setItem("color",colorForm.value);
+
+                reloadColor();
+            })
+            
+        })
+    </script>
+    <main>
+        <div class="content">
+            <div class="title">
+                <h1>Settings</h1>
+            </div>
+            <div class="option">
+                <hr>
+                <form>
+                    <h2>Font:</h2>
+                    <select id="font-form">
+                        <option value="unbounded">Unbounded</option>¨
+                        <option value="hyperlegible">Atkinson Hyperlegible</option>
+                    </select>
+                    <h3>
+                        Changes the font used.<br>
+                    </h3>
+                    <p>
+                        Unbounded: Font chose for this website's style.<br>
+                        Atkinson Hyperlegible: Font made specifically for readabilty.
+                    </p>
+                </form>
+            </div>
+            <div class="option">
+                <hr>
+                <form>
+                    <h2>Color Scheme:</h2>
+                    <select id="color-form">
+                        <option value="dark">Dark</option>¨
+                        <option value="light">Light</option>
+                    </select>
+                    <h3>
+                        Changes color scheme used on the website.<br>
+                    </h3>
+                    <p>
+                        Dark: Dark color scheme (Default)<br>
+                        Light: Light color scheme
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .content {
+        width: fit-content;
+        margin: 0 auto;
+    }
+</style>
+
+<style>
+    select {
+        background-color: white;
+        border: thin solid blue;
+        border-radius: 4px;
+        display: inline-block;
+        font: inherit;
+        line-height: 1.5em;
+        padding: 0.5em 3.5em 0.5em 1em;
+
+        margin: 0;      
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        background-image:
+            linear-gradient(45deg, transparent 50%, gray 50%),
+            linear-gradient(135deg, gray 50%, transparent 50%),
+            linear-gradient(to right, #ccc, #ccc);
+
+        background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            calc(100% - 2.5em) 0.5em;
+
+        background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+
+        background-repeat: no-repeat;
+    }
+
+    select:focus {
+        background-image:
+            linear-gradient(45deg, gray 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, gray 50%), 
+            linear-gradient(to right, #ccc, #ccc);
+        background-position:
+            calc(100% - 15px) 1em,
+            calc(100% - 20px) 1em,
+            calc(100% - 2.5em) 0.5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+        background-repeat: no-repeat;
+        border-color: gray;
+        outline: 0;
+    }
+
+
+    select:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+    }
+</style>

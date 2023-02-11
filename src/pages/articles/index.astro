@@ -1,0 +1,57 @@
+---
+
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from 'astro:content';
+const articles = await getCollection('article');
+
+---
+
+<Layout title="Articles"
+    description="Artikkler som er publisert.">
+    <main>
+        <div class="hero">
+            <h1>Artikkler</h1>
+            <p>Her kan du bla igjennom alle av vår {articles.length} artikkler.</p>
+        </div>
+        <div class="articles">
+            {articles.map((article)=>(
+                <div class="article">
+                    <a href={"/article/" + article.slug}>
+                        <h2>
+                            {article.data.title}    
+                        </h2>
+                    </a>
+                    <p>
+                        {article.data.description}
+                    </p>
+                </div>
+            ))}
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        width: 75vw;
+        margin: 0 auto;
+    }
+    div.articles {
+        width: 75vw;
+    }
+
+    div.articles > div.article {
+        margin: 24px auto;
+        color: var(--pri-1);
+        height: fit-content;
+        border: 2px solid var(--pri-1);
+    }
+
+    div.article > a,
+    div.article > p {
+        width: fit-content;
+        display: block;
+        color: var(--pri-1);
+        margin: 16px 24px 16px 24px;
+    }
+</style>

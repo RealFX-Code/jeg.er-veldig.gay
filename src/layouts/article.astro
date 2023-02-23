@@ -1,20 +1,82 @@
 ---
 
-import Layout from "./Layout.astro";
-
 import type { Project } from '../types';
 
 interface Props {
 	content: Project;
 }
+
 const { content } = Astro.props;
+
+
+const formattedDate = (a) => {
+    const date = new Date(a);
+    const yyyy = date.getFullYear();
+    let mm = date.getMonth() + 1; // Months start at 0!
+    let dd = date.getDate();
+    
+    if (dd < 10)
+    {
+        //@ts-ignore
+        dd = '0' + dd;
+    }
+    if (mm < 10)
+    {
+        //@ts-ignore
+        mm = '0' + mm;
+    }
+    return  dd + '/' + mm + '/' + yyyy;
+}
 
 ---
 
-<Layout
-    title={content.title}
-    description={content.description}>
-    <main>
+<article>
 
-    </main>
-</Layout>
+    <div class="title">
+        <h1>{content.title}</h1>
+    </div>
+    <div class="desc">
+        <p>{content.description}</p>
+        <div class="tags">
+            {content.tags.map((tag)=>(
+                <span>
+                    {tag}
+                </span>
+            ))}
+        </div>
+        <div class="publishDate" title="dd/mm/yy">
+            Published: {
+                formattedDate(content.publishDate)
+            }
+            <span>
+                Edited: {
+                    formattedDate(content.editedDate)
+                }
+            </span>
+        </div>
+    </div>
+    <hr>
+    <div class="content">
+        <slot />
+    </div>
+
+</article>
+
+<style>
+
+    h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    span,
+    div {
+        text-align: center;
+    }
+
+</style>

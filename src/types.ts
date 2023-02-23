@@ -1,8 +1,14 @@
+
+// Project Type
 export interface Project {
-	title: string;
-	client: string;
-	description: string;
-	publishDate: string;
-	tags: string[];
-	img: string;
+	slug        : string;
+	templateVer : number;
+	layout      : string;
+	title       : string;
+	client      : string;
+	publishDate : string;
+	editedDate  : string;
+	img         : string;
+	description : string;
+	tags        : Array<string>;
 }

@@ -1,0 +1,32 @@
+body[data-color="dark"] {
+    --pri-1: #EDD2E0;
+    --pri-2: #5B507A;
+    --pri-3: #9AD4D6;
+    --pri-4: #F5CB5C;
+    --pri-5: #FB8B24;
+
+    --sec-1: #323232;
+    --sec-2: #776970;
+    --sec-3: #080808;
+    --sec-4: #484959;
+    --sec-5: rgba(255,255,255,0.25);
+
+    --background: #161616;
+}
+
+body[data-color="light"] {
+    --pri-1: #292929;
+    --pri-2: #5B507A;
+    --pri-3: #9AD4D6;
+    --pri-4: #F5CB5C;
+    --pri-5: #FB8B24;
+
+    --sec-1: #ffffff;
+    --sec-2: #776970;
+    --sec-3: #080808;
+    --sec-4: #484959;
+    --sec-5: rgba(255,255,255,0.25);
+
+    --background: #ececec;
+    --footer-color: #ececec;
+}

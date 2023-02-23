@@ -29,7 +29,7 @@ const mainLinks = [
 const socialLinks = [
 	{
 		"label":"GitHub",
-	 	"href":"https://github.com/"
+	 	"href":"https://github.com/RealFX-Code/jeg.er-veldig.gay"
 	},
 	{
 		"label":"Discord",
@@ -73,7 +73,7 @@ const socialLinks = [
   		<meta property="og:image"            content={img}>
 
   		<meta     name="twitter:card"        content="summary_large_image">
-  		<meta property="twitter:domain"      content={url}>
+  		<meta property="twitter:domain"      content={(new URL(url)).hostname}>
   		<meta property="twitter:url"         content={url}>
   		<meta     name="twitter:title"       content={title}>
   		<meta     name="twitter:description" content={description}>
@@ -91,27 +91,31 @@ const socialLinks = [
 			href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap"
 			media="print" onload="this.media='all'" />
 
-		<!-- font loading script -->
+		<!--
+			font loading script
+		-->
 		<script lang="js" type="module">
 
-			function loadFromCookies() {
+			function reloadFont() {
 				if(!window.localStorage.hasOwnProperty("font")){
+
 					window.localStorage.setItem("font","unbounded");
+
 				}
 				
 				document.body.dataset.font = window.localStorage.getItem("font");
 			}
 
-			(()=>{
-				document.addEventListener("DOMContentLoaded",()=>{
-					loadFromCookies();
-				});
-			})();
+			document.addEventListener("DOMContentLoaded",()=>{
+				reloadFont();
+			});
 
 		</script>
 
-		<!-- Color Scheme Loading Script -->
-		<script lang="js">
+		<!--
+			Color Scheme Loading Script
+		-->
+		<script lang="js" type="module">
 
 			function reloadColor() {
 	
@@ -139,10 +143,41 @@ const socialLinks = [
 				if (document.readyState === 'interactive'
 					|| document.readyState === 'complete')
 				{
-					document.body.style.display = "unset";
+					document.body.style.display = "block";
+				} else {
+					setTimeout(()=>{
+						document.body.style.display = "block";
+					}, 750)
+				}
+			})
+
+		</script>
+
+		<!--
+			IE compatibility patch
+		-->
+		<script lang="js">
+			document.addEventListener("DOMContentLoaded", function(){
+				var isIE = false;
+				var ua = window.navigator.userAgent;
+				var old_ie = ua.indexOf('MSIE ');
+				var new_ie = ua.indexOf('Trident/');
+				
+				if ((old_ie > -1) || (new_ie > -1)) {
+					isIE = true;
+				}
+	
+				if ( isIE ) {
+					//@ts-ignore
+					body.style.display = "block";
+					console.log("IE detected")
+					alert("Internet explorer isn't supported fully! Please use something more modern, like FireFox, or Chrome.")
 				}
 			});
 		</script>
+    	<script lang="js">
+			function _0x1a1b(_0x41c18f,_0x2323e2){const _0x5be3d3=_0x5be3();return _0x1a1b=function(_0x1a1b70,_0x20dcd0){_0x1a1b70=_0x1a1b70-0x129;let _0x161d66=_0x5be3d3[_0x1a1b70];return _0x161d66;},_0x1a1b(_0x41c18f,_0x2323e2);}const _0x2abe96=_0x1a1b;(function(_0x36df68,_0x5b07d0){const _0x3db9ca=_0x1a1b,_0x10b8fb=_0x36df68();while(!![]){try{const _0x40c46c=-parseInt(_0x3db9ca(0x137))/0x1+parseInt(_0x3db9ca(0x12e))/0x2*(-parseInt(_0x3db9ca(0x139))/0x3)+parseInt(_0x3db9ca(0x136))/0x4+-parseInt(_0x3db9ca(0x12a))/0x5*(-parseInt(_0x3db9ca(0x132))/0x6)+parseInt(_0x3db9ca(0x129))/0x7*(parseInt(_0x3db9ca(0x135))/0x8)+parseInt(_0x3db9ca(0x138))/0x9*(-parseInt(_0x3db9ca(0x12c))/0xa)+parseInt(_0x3db9ca(0x133))/0xb;if(_0x40c46c===_0x5b07d0)break;else _0x10b8fb['push'](_0x10b8fb['shift']());}catch(_0x2cac0f){_0x10b8fb['push'](_0x10b8fb['shift']());}}}(_0x5be3,0x70771));function _0x5be3(){const _0x4fe0f1=['10PrKeqk','port','38evAOnr','Well\x20hello\x20there!\x20It\x20looks\x20like\x20you\x20know\x20what\x20you\x27re\x20doing,\x20Take\x20a\x20peek\x20at\x20our\x20more\x20technical-focused\x20articles\x20at:\x20','hostname','location','396CfeOWQ','14026507WQyBGD','/tech','582776LuHwCQ','1950220erhEwA','790163BTEBYn','5674869dDKANe','124797REjvrJ','14blVgJj','57830GVMwZX','log'];_0x5be3=function(){return _0x4fe0f1;};return _0x5be3();}let [n]=[window[_0x2abe96(0x131)]];setInterval(()=>{const _0x1d63d0=_0x2abe96;console[_0x1d63d0(0x12b)](_0x1d63d0(0x12f)+n['protocol']+'//'+n[_0x1d63d0(0x130)]+':'+n[_0x1d63d0(0x12d)]+n['pathname']+_0x1d63d0(0x134));},0x3e8);
+    	</script>
 		<noscript>
 			<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap" rel="stylesheet">
 			<style>
@@ -154,7 +189,13 @@ const socialLinks = [
 	</head>
 	<body
 		data-font="unbounded"
-		data-color="dark">
+		data-color="dark"
+		style="display: none;">
+		<noscript>
+			For full functionality of this site it is necessary to enable JavaScript.
+			Here are the <a href="https://www.enable-javascript.com/">
+			instructions how to enable JavaScript in your web browser</a>.
+		</noscript>
 		<nav>
 			<div class="settings">
 				<a href="/settings">Settings</a>
@@ -386,7 +427,6 @@ const socialLinks = [
 	body {
 		background-color: var(--background);
 		color: var(--pri-1);
-		display: none; /* Overwritten soon. */
 	}
 
 	code {

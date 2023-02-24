@@ -89,11 +89,40 @@
                     <h3>
                         Skifter skrift-typen brukt på nettsiden.<br>
                     </h3>
-                    <p>
-                        Unbounded: Skrift-Type valgt spesifikt for denne nettsiden sin stil.<br>
-                        Atkinson Hyperlegible: Skrift-Type som er enklest å lese.<br>
-                        Comic Sans MS: Skrift-Type som for noen er enklere å lese.
-                    </p>
+                    <table>
+                        <tr>
+                            <th>
+                                Skrift-Type
+                            </th>
+                            <th>
+                                Beskrivelse
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Unbounded 
+                            </td>
+                            <td>
+                                Skrift-Type valgt spesifikt for denne nettsiden sin stil.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Atkinson Hyperlegible
+                            </td>
+                            <td>
+                                Skrift-Type som er enklest å lese.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Comic Sans MS
+                            </td>
+                            <td>
+                                Skrift-Type som for noen er enklere å lese.
+                            </td>
+                        </tr>
+                    </table>
                 </form>
             </div>
             <div class="option">
@@ -108,8 +137,7 @@
                         Endrer farge temaet som blir brukt på nettsiden:<br>
                     </h3>
                     <p>
-                        Mørk: Mørkt farge tema (Standard)<br>
-                        Lys: Lyst farge tema
+                        Noen temaer er lettere å lese på noen skjermer, Men det er alt opp til preferanse.
                     </p>
                 </form>
             </div>
@@ -122,6 +150,17 @@
         width: fit-content;
         margin: 0 auto;
     }
+
+    table {
+        width: fit-content;
+    }
+
+    table, tr, td, th {
+        padding: 8px;
+        border: 1px solid var(--pri-1);
+        border-collapse: collapse;
+    }
+
 </style>
 
 <style>

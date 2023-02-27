@@ -150,10 +150,9 @@ const socialLinks = [
 				} else {
 					setTimeout(()=>{
 						document.body.style.display = "block";
-					}, 750)
+					}, 750);
 				}
 			})
-
 		</script>
 
 		<!--
@@ -195,16 +194,19 @@ const socialLinks = [
 			</style>
 		</noscript>
 	</head>
-	<body
-		data-font="unbounded"
-		data-color="dark"
-		style="display: none;">
-		<noscript>
-			For full functionality of this site it is necessary to enable JavaScript.
-			Here are the <a href="https://www.enable-javascript.com/">
-			instructions how to enable JavaScript in your web browser</a>.
-		</noscript>
-		<nav>
+	<!--
+		Settings set in body here, also double up as defualts for anyone who doesn't have settings set in localStorage.
+	 -->
+	 <body
+	 data-font="unbounded"
+	 data-color="dark"
+	 style="display: none;">
+	 <noscript>
+		 For full functionality of this site it is necessary to enable JavaScript.
+		 Here are the <a href="https://www.enable-javascript.com/">
+		 instructions how to enable JavaScript in your web browser</a>.
+	 </noscript>
+	 <nav>
 			<div class="settings">
 				<a href="/settings">Instillinger</a>
 			</div>

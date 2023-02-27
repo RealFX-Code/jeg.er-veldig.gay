@@ -166,7 +166,7 @@ const socialLinks = [
 
 			let styleEl = document.createElement("style");
 			styleEl.id="bodyHide";
-			styleEl.innerHTML = "//THIS GETS REPLACED SOON BY THE SCRIPT ABOVE LABELED \"FOUC fix pt.1\".\nbody {\ndisplay:none;\n}";
+			styleEl.innerHTML = "body{display:none;}";
 
 			document.head.appendChild(styleEl);
 
@@ -202,8 +202,6 @@ const socialLinks = [
 				console.log("Looks like you know what you're doing, Why not check out our technical articles at: " + a + "!");
 			},1000)
     	</script>
-		<noscript>
-		</noscript>
 	</head>
 	<!--
 		Settings set in body here, also double up as defualts for anyone who doesn't have settings set in localStorage.
@@ -211,15 +209,9 @@ const socialLinks = [
 	 <body
 	 data-font="unbounded"
 	 data-color="dark">
-	 <noscript>
-		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap" rel="stylesheet">
-		 For full functionality of this site it is necessary to enable JavaScript.
-		 Here are the <a href="https://www.enable-javascript.com/">
-		 instructions how to enable JavaScript in your web browser</a>.
-	 </noscript>
 	 <nav>
-			<div class="settings">
-				<a href="/settings">Instillinger</a>
+		 <div class="settings">
+			 <a href="/settings">Instillinger</a>
 			</div>
 			<div class="links">
 				{mainLinks.map((value)=>( // Astro's equiv of a forEach loop.
@@ -236,6 +228,31 @@ const socialLinks = [
 				))}
 			</div>
 		</nav>
+		<noscript>
+		   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap" rel="stylesheet">
+		   <style>
+			   	.noscript-container {
+				   width: 400px;
+				   margin: 24px auto;
+				   padding: 24px;
+				   border: 2px solid var(--pri-1);
+			   	}
+			   	.noscript-container > a
+			   	.noscript-container {
+					font-size: 1.25rem;
+			   	}
+
+				.noscript-container > a:visited {
+					color: var(--pri-1);
+				}
+		   </style>
+		   <div class="noscript-container">
+				<p>
+					For full functionality of this site it is necessary to enable JavaScript.
+					Here are the <a href="https://www.enable-javascript.com/">instructions on how to enable JavaScript in your web browser</a>.
+				</p>
+		   </div>
+		</noscript>
 		<div class="app">
 			<slot />
 		</div>

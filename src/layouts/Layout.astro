@@ -139,7 +139,7 @@ const socialLinks = [
 		</script>
 
 		<!--
-			FOUC fix.
+			FOUC fix pt.1
 		 -->
 		<script lang="js">
 			document.addEventListener("DOMContentLoaded",()=>{
@@ -152,7 +152,24 @@ const socialLinks = [
 						document.body.style.display = "block";
 					}, 750);
 				}
+				setTimeout(()=>{
+					(document.getElementById("bodyHide")).remove();
+				},1000);
 			})
+		</script>
+
+		<!--
+			FOUC fix pt.2
+		-->
+
+		<script lang="js">
+
+			let styleEl = document.createElement("style");
+			styleEl.id="bodyHide";
+			styleEl.innerHTML = "//THIS GETS REPLACED SOON BY THE SCRIPT ABOVE LABELED \"FOUC fix pt.1\".\nbody {\ndisplay:none;\n}";
+
+			document.head.appendChild(styleEl);
+
 		</script>
 
 		<!--
@@ -186,22 +203,16 @@ const socialLinks = [
 			},1000)
     	</script>
 		<noscript>
-			<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap" rel="stylesheet">
-			<style>
-				body {
-					display: visible;
-				}
-			</style>
 		</noscript>
 	</head>
 	<!--
 		Settings set in body here, also double up as defualts for anyone who doesn't have settings set in localStorage.
-	 -->
+	-->
 	 <body
 	 data-font="unbounded"
-	 data-color="dark"
-	 style="display: none;">
+	 data-color="dark">
 	 <noscript>
+		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Unbounded:wght@400;900&display=swap" rel="stylesheet">
 		 For full functionality of this site it is necessary to enable JavaScript.
 		 Here are the <a href="https://www.enable-javascript.com/">
 		 instructions how to enable JavaScript in your web browser</a>.

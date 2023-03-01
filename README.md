@@ -1,54 +1,65 @@
-# Astro Starter Kit: Basics
+# Jeg.er-veldig.gay
+
+A website for basic stuff idfk
+
+> Attempted site for helping LGBTQ+ questioning people, also written in norwegian.
+
+- [Jeg.er-veldig.gay](#jeger-veldiggay)
+  - [Contributing](#contributing)
+    - [Building](#building)
+      - [Astro specific stuff](#astro-specific-stuff)
+    - [Can I write articles?](#can-i-write-articles)
+  - [Why this exact domain](#why-this-exact-domain)
+
+## Contributing
+
+Simple really, Fork this repo, Commit to your proposed changes, And create a Pull Request.
+
+[Here's how to do that](https://opensource.com/article/19/7/create-pull-request-github)
+
+### Building
+
+Just like any other web app using vite..
+
+```bash
+# Open a development server ( with live code changes )
+
+# Install npm packages
+$ npm i
+
+# run dev server
+$ npm run dev
 
 ```
-npm create astro@latest -- --template basics
+To build your site:
+
+```bash
+# To make a prod build:
+
+# Install npm packages
+$ npm i
+
+# Build site
+$ npm run build
+
+# OPTIONAL: host built site ( not prod-ready )
+$ npm run preview
+
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+#### Astro specific stuff
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Since this site is built using astro, you can do cool stuff like use the astro cli to get to the astro documentation using:
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
-
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
+```bash
+$ npm run astro docs
 ```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### Can I write articles?
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Well of course you can, but you have to not have any article slugs, author names, or titles that conflict with any pre-existing articles.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+And articles **have** to be written in norwegian. This is intended to be a norwegian site, and so the articles will be in norwegian.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Why this exact domain
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+I bought the domain: `er-veldig.gay` for e-mails, and though it'd be dumb to only have e-mail on it, so why not put something slightly useful to about 6 people on the domain. And from that on I decided to write this help-resource esque thing.

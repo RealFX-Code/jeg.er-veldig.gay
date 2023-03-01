@@ -3,6 +3,7 @@
 export interface Project {
 	slug        : string;
 	templateVer : number;
+	author      : string;
 	layout      : string;
 	title       : string;
 	client      : string;

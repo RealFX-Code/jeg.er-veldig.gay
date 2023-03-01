@@ -1,6 +1,7 @@
 ---
 slug: test-template
-templateVer: 1.1
+templateVer: 1.2
+author: author_name_here
 layout: ./../../layouts/article.astro
 title: Post 1 Title
 client: Self
@@ -13,7 +14,7 @@ tags:
   - tag1
   - tag2
   - tag3
-  - tag3
+  - tag4
 ---
 
 ## subtitle

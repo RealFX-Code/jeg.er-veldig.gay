@@ -1,0 +1,42 @@
+---
+
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="Der gikk det noe feil."
+    description="404 - Noe ble ikke funnet">
+    <main>
+        <h1>
+            Noe gikk galt.
+            <small>
+                <hr>
+                404 - Not Found
+            </small>
+        </h1>
+    </main>
+</Layout>
+
+<style>
+
+    main,
+    h1,
+    div,
+    small,
+    p {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 10vw;
+    }
+
+    hr {
+        width: 75vmax;
+    }
+
+    small {
+        font-size: 7vw;
+    }
+
+</style>

@@ -1,3 +1,39 @@
 /*
     Standard article CSS
+    
+    --pri-2
+    --pri-3
+    --pri-4
+    --pri-5
+
 */
+
+.tags {
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+}
+
+.tags > span {
+    font-size: 1rem;
+    color: var(--pri-1);
+    opacity: 0.85;
+    margin: 4px;
+}
+
+.publishDate {
+    opacity: 0.5;
+    margin: 0 auto;
+    width: fit-content;
+    text-align: center;
+}
+
+article {
+    margin: 0 auto;
+    width: 60vw;
+}
+
+.content > * {
+    padding: 8px;
+    text-align: left;
+}

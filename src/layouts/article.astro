@@ -1,5 +1,7 @@
 ---
 
+import './layout-css/article.css';
+
 import type { Project } from '../types';
 
 interface Props {
@@ -28,10 +30,17 @@ const formattedDate = (a) => {
     return  dd + '/' + mm + '/' + yyyy;
 }
 
+const author = () => {
+    if ( content.author ) {
+        return content.author;
+    } else {
+        return "No Author";
+    }
+}
+
 ---
 
 <article>
-
     <div class="title">
         <h1>{content.title}</h1>
     </div>
@@ -39,17 +48,17 @@ const formattedDate = (a) => {
         <p>{content.description}</p>
         <div class="tags">
             {content.tags.map((tag)=>(
-                <span>
+                <span id={"tag-"+content.tags.indexOf(tag)}>
                     {tag}
                 </span>
             ))}
         </div>
-        <div class="publishDate" title="dd/mm/yy">
-            Published: {
+        <div class="publishDate" title="date format: dd/mm/yy">
+            This article was published by {author}, at: {
                 formattedDate(content.publishDate)
-            }
+            }, 
             <span>
-                Edited: {
+                And last edited at: {
                     formattedDate(content.editedDate)
                 }
             </span>
@@ -59,7 +68,6 @@ const formattedDate = (a) => {
     <div class="content">
         <slot />
     </div>
-
 </article>
 
 <style>
@@ -69,13 +77,7 @@ const formattedDate = (a) => {
         text-align: center;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    span,
-    div {
+    h1, h2, h3, h4, p, span, div {
         text-align: center;
     }
 

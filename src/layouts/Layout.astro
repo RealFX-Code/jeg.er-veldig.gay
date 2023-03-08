@@ -102,7 +102,7 @@ const socialLinks = [
 			function reloadFont() {
 				if(!window.localStorage.hasOwnProperty("font")){
 
-					window.localStorage.setItem("font","unbounded");
+					window.localStorage.setItem("font",document.body.dataset.font);
 
 				}
 				
@@ -124,7 +124,7 @@ const socialLinks = [
 	
 				if(!window.localStorage.hasOwnProperty("color")){
 	
-					window.localStorage.setItem("color","dark");
+					window.localStorage.setItem("color",document.body.dataset.color);
 	
 				}
 	
